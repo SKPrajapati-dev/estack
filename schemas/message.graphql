@@ -1,0 +1,19 @@
+type Message {
+  id: ID!
+  text: String!
+  sender: User!
+  channel: Channel!
+  createdAt: String!
+}
+
+type Query {
+  getChannelMessages(channelId: ID!): [Message!]!
+}
+
+type Mutation {
+  createMessage(channelId: ID!, text: String!, file: Upload): Boolean!
+}
+
+type Subscription {
+  newChannelMessage(channelId: ID!): Message!
+}

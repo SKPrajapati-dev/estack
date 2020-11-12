@@ -1,0 +1,7 @@
+node_modules
+.env
+dump.rdb
+client
+ec2.pem
+ec2.ppk
+notes.text

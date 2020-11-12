@@ -1,0 +1,35 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  teams: [Team!]!
+  isOnline: Boolean!
+}
+
+type Query {
+  getAllUsers: [User!],
+  me: RegisterResponse!
+}
+
+type Mutation {
+  login(user: LoginInput!): LoginResponse!
+  register(username: String!, email: String!, password: String!): RegisterResponse!
+  logout: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse {
+  ok: Boolean!
+  token: String
+  errors: [Error!]
+}
+
+type RegisterResponse {
+  ok: Boolean!
+  user: User
+  errors: [Error!]
+}

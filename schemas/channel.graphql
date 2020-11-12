@@ -1,0 +1,15 @@
+type Channel {
+  id: ID!
+  channelName: String!
+  public: Boolean!
+}
+
+type Mutation {
+  createChannel(teamId: ID!, name: String!, public: Boolean=true): ChannelResponse!
+}
+
+type ChannelResponse {
+  ok: Boolean!
+  channel: Channel
+  errors: [Error!]
+}

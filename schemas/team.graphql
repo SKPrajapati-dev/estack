@@ -1,0 +1,29 @@
+type Team {
+  id: ID!
+  teamName: String!
+  channels: [Channel!]!
+  ownerId: ID!
+}
+
+type Query {
+  getTeam(teamId: ID!): TeamResponse!
+  getTeamMembers(teamId: ID!): [User!]!
+}
+
+type Mutation {
+  createTeam(name: String!): TeamResponse!
+  addTeamMembers(emails: [String!]!, teamId: ID!): VoidResponse!
+  addTeamMember(email: String!, teamId: ID!): VoidResponse!
+  deleteTeam(teamId: ID!): Boolean!
+}
+
+type TeamResponse {
+  ok: Boolean!
+  team: Team
+  errors: [Error!]
+}
+
+type VoidResponse {
+  ok: Boolean!
+  errors: [Error!]
+}
